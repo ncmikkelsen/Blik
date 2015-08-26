@@ -3,7 +3,7 @@ import gifAnimation.*;
 import processing.video.*;
 
 boolean lastPressed = false;
-String path = "/eyes/";
+String path = "C:/Users/N/Pictures/eyes/";
 String[] filenames;
 Gif eyes;
 
@@ -13,9 +13,9 @@ GifMaker gifExport;
 GifMaker gifPlayer;
 
 void setup(){
-  //Standard stuff
-  //size(640, 480);
-  fullScreen();
+  //Screen size stuff
+  size(displayWidth, displayHeight);
+  imageMode(CENTER);
   
   //Camera stuff
   cam = new Capture(this, 320, 240);
@@ -23,7 +23,7 @@ void setup(){
   
   //Gif stuff
   capturedFrames = 0;
-  filenames = listFileNames(sketchPath + path);
+  filenames = listFileNames(path);
   
   
   println(filenames);
@@ -33,11 +33,11 @@ void setup(){
 
 
 
-void draw() {
+void draw() {                                  
   if(keyPressed){
     gifExport.setDelay(100);
     gifExport.addFrame(cam);
-    image(eyes, 0, 0); 
+    image(eyes, width/2, eyes.height/2); 
   }
 }
 
@@ -54,13 +54,13 @@ void keyPressed() {
 }
 
 void keyReleased(){
-  gifExport.finish();
+  //gifExport.finish();
   lastPressed = false;
   println("gif saved");
 }
 
 void newEyes(){
-  String[] eyesList = listFileNames(sketchPath + path);
+  String[] eyesList = listFileNames(path);
   if(eyesList.length > 1){
     println(eyesList);
     int randIndex = (int)random(eyesList.length-1);
