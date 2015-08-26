@@ -14,7 +14,8 @@ GifMaker gifPlayer;
 
 void setup(){
   //Standard stuff
-  size(640, 480);
+  //size(640, 480);
+  fullScreen();
   
   //Camera stuff
   cam = new Capture(this, 320, 240);
