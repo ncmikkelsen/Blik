@@ -92,7 +92,8 @@ void newEyes() {
   String[] eyesList = listFileNames(sketchPath + path);
   if (eyesList.length > 0) {
     println(eyesList);
-    int randIndex = (int)random(eyesList.length-1);
+    //Removed -1 from eyelist.length. Add if problems.
+    int randIndex = (int)random(eyesList.length);
     String chosen = eyesList[randIndex];
     eyes = new Gif(this, path + chosen);
     eyes.play();
@@ -114,4 +115,3 @@ String[] listFileNames(String dir) {
     return null;
   }
 }
-
