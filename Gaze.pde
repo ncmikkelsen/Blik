@@ -1,5 +1,4 @@
 import gifAnimation.*;
-
 import processing.video.*;
 
 boolean lastPressed = false;
@@ -27,7 +26,7 @@ void setup() {
 
   //Gif stuff
   capturedFrames = 0;
-  filenames = listFileNames(sketchPath + path);
+  filenames = listFileNames(sketchPath() + path);
 
   recording = false;
 
@@ -89,7 +88,7 @@ void keyReleased() {
 }
 
 void newEyes() {
-  String[] eyesList = listFileNames(sketchPath + path);
+  String[] eyesList = listFileNames(sketchPath() + path);
   if (eyesList.length > 0) {
     println(eyesList);
     //Removed -1 from eyelist.length. Add if problems.
